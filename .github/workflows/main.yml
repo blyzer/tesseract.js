@@ -1,0 +1,31 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run ESLint
+    - uses: stefanoeb/eslint-action@1.0.2
+      with: 
+        files: src/
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.0.0
+      with:
+        # This will be used for authentication. You can find it in your heroku homepage account settings
+        heroku_api_key: 744bf909-759b-4d30-bc9d-112a9c21baa7
+        # Email that you use with heroku
+        heroku_email: enver.francisco@gmail.com
+        # The appname to use for deploying/updating
+        heroku_app_name: OCRDoc
+        # An optional buildpack to use when creating the heroku application
+        # buildpack: # optional
+        # The branch that you would like to deploy to Heroku
+        branch: master
+        # Set this to true if you don't want to use --force when switching branches
+        dontuseforce: true
+        # Will deploy using Dockerfile in project root.
+        # usedocker: # optional  
