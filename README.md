@@ -10,6 +10,7 @@
 [![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 [![Downloads Total](https://img.shields.io/npm/dt/tesseract.js.svg)](https://www.npmjs.com/package/tesseract.js)
 [![Downloads Month](https://img.shields.io/npm/dm/tesseract.js.svg)](https://www.npmjs.com/package/tesseract.js)
+[![Actions Panel](https://img.shields.io/badge/actionspanel-enabled-brightgreen)](https://www.actionspanel.app/app/blyzer/tesseract.js)
 
 <h3 align="center">
   Version 2 is now available and under development in the master branch, read a story about v2: <a href="https://medium.com/@jeromewus/why-i-refactor-tesseract-js-v2-50f750a9cfe2">Why I refactor tesseract.js v2?</a><br>
