@@ -1,6 +1,6 @@
 module.exports = (corePath, res) => {
   if (typeof global.TesseractCore === 'undefined') {
-    res.progress({ status: 'loading tesseract core', progress: 0 });
+    res.progress({ status: 'cargando tesseract núcleo', progress: 0 });
     global.importScripts(corePath);
     /*
      * Depending on whether the browser supports WebAssembly,
@@ -11,9 +11,9 @@ module.exports = (corePath, res) => {
     } else if (typeof global.TesseractCoreASM !== 'undefined') {
       global.TesseractCore = global.TesseractCoreASM;
     } else {
-      throw Error('Failed to load TesseractCore');
+      throw Error('No se ha cargado TesseractCore');
     }
-    res.progress({ status: 'loading tesseract core', progress: 1 });
+    res.progress({ status: 'cargando tesseract núcleo', progress: 1 });
   }
   return global.TesseractCore;
 };

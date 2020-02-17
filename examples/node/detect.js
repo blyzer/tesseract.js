@@ -5,7 +5,7 @@ const Tesseract = require('../../');
 const [,, imagePath] = process.argv;
 const image = path.resolve(__dirname, (imagePath || '../../tests/assets/images/cosmic.png'));
 
-console.log(`Recognizing ${image}`);
+console.log(`Reconociendo ${image}`);
 
 Tesseract.detect(image, { logger: m => console.log(m) })
   .then(({ data }) => {

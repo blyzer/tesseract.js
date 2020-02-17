@@ -1,0 +1,57 @@
+name: CI
+
+on: repository_dispatch
+
+jobs:
+  test:
+    if: github.event.action == 'run_tests'
+    name: Run your tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "I just ran all your tests!"
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run ESLint
+      uses: stefanoeb/eslint-action@1.0.2
+      with: 
+        files: src/
+    - name: Publish Docker Image
+      uses: tinact/docker.image@1.0.0
+      with:
+        # So that an image can be assigned by name, a unique name must be assigned.
+        image_name: wkfTesseract
+        # Each image should have a tag for unique identification.
+        # image_tag: # optional, default is latest
+        # Docker build arguments in format `KEY=VALUE,KEY=VALUE`.
+        # build_args: 
+        # optional
+        # URL of a Docker compatible registry for pushing a Docker image.
+        registry: registry.hub.docker.com
+        # optional, default is registry.hub.docker.com
+        # Registry Username
+        registry_username: blyzer
+        # Registry Password. This should be stored in a Secret on Github.
+        registry_password: ${{ secrets.GITHUB_TOKEN }}
+        # Storage location of the Docker file.
+        # dockerfile: # optional, default is dockerfile
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.0.0
+      with:
+        # This will be used for authentication. You can find it in your heroku homepage account settings
+        heroku_api_key: 744bf909-759b-4d30-bc9d-112a9c21baa7
+        # Email that you use with heroku
+        heroku_email: enver.francisco@gmail.com
+        # The appname to use for deploying/updating
+        heroku_app_name: OCRDoc
+        # An optional buildpack to use when creating the heroku application
+        # buildpack: # optional
+        # The branch that you would like to deploy to Heroku
+        branch: master
+        # Set this to true if you don't want to use --force when switching branches
+        dontuseforce: true
+        # Will deploy using Dockerfile in project root.
+        # usedocker: # optional  

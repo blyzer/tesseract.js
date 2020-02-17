@@ -1,12 +1,12 @@
-## Local Installation
+## Instalación local 
 
-Check here for examples: https://github.com/naptha/tesseract.js/blob/master/docs/examples.md 
+Vea aquí algunos ejemplos: https://github.com/naptha/tesseract.js/blob/master/docs/examples.md  
 
-In browser environment, `tesseract.js` simply provides the API layer. Internally, it opens a WebWorker to handle requests. That worker itself loads code from the Emscripten-built `tesseract.js-core` which itself is hosted on a CDN. Then it dynamically loads language files hosted on another CDN.
+En el entorno del navegador, `tesseract.js` simplemente proporciona la capa API.  Internamente, abre un WebWorker para manejar las solicitudes.  Ese trabajador por sí mismo carga el código del "tesseract.js-core" construido por Emscripten, que a su vez está alojado en un CDN.  Luego carga dinámicamente archivos de lenguaje alojados en otro CDN. 
 
-Because of this we recommend loading `tesseract.js` from a CDN. But if you really need to have all your files local, you can pass extra arguments to `TesseractWorker` to specify custom paths for workers, languages, and core.
+Por eso recomendamos cargar el `tesseract.js` desde un CDN.  Pero si realmente necesitas tener todos tus archivos locales, puedes pasarle argumentos extra a `TesseractWorker` para especificar rutas personalizadas para los trabajadores, los idiomas y el núcleo. 
 
-In Node.js environment, the only path you may want to customize is languages/langPath.
+En el entorno de Node.js, la única ruta que puedes querer personalizar es languages/langPath. 
 
 ```javascript
 Tesseract.recognize(image, langs, {
@@ -27,12 +27,12 @@ const worker = createWorker({
 ```
 
 ### workerPath
-A string specifying the location of the [worker.js](./dist/worker.min.js) file.
+Una cadena que especifica la ubicación del archivo [trabajador.js](./dist/trabajador.min.js).
 
 ### langPath
-A string specifying the location of the tesseract language files, with default value 'https://tessdata.projectnaptha.com/4.0.0'. Language file URLs are calculated according to the formula `langPath + langCode + '.traineddata.gz'`.
+Una cadena que especifica la ubicación de los archivos del lenguaje tesseract, con el valor por defecto 'https://tessdata.projectnaptha.com/4.0.0'. Las URL de los archivos de idioma se calculan según la fórmula "langPath + langCode + '.traineddata.gz'`.
 
 ### corePath
-A string specifying the location of the [tesseract.js-core library](https://github.com/naptha/tesseract.js-core), with default value 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm.js' (fallback to tesseract-core.asm.js when WebAssembly is not available).
+Una cadena que especifica la ubicación de la [biblioteca tesseract.js-core](https://github.com/naptha/tesseract.js-core), con el valor por defecto '_COPY13@v2.0.0/tesseract-core.wasm.js' (se utiliza tesseract-core.asm.js cuando el WebAssembly no está disponible).
 
-Another WASM option is 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.js' which is a script that loads 'https://unpkg.com/tesseract.js-core@v2.0.0/tesseract-core.wasm'. But it fails to fetch at this moment.
+Otra opción de WASM es '_COPY13@v2.0.0/tesseract-core.js' que es un script que carga '_COPY13@v2.0.0/tesseract-core.wasm'. Pero no se carga en este momento.

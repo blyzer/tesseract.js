@@ -14,7 +14,7 @@ const readFromBlobOrFile = blob => (
       resolve(fileReader.result);
     };
     fileReader.onerror = ({ target: { error: { code } } }) => {
-      reject(Error(`File could not be read! Code=${code}`));
+      reject(Error(`¡El archivo no pudo ser leído! Código=${code}`));
     };
     fileReader.readAsArrayBuffer(blob);
   })

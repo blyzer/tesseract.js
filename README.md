@@ -10,30 +10,31 @@
 [![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 [![Downloads Total](https://img.shields.io/npm/dt/tesseract.js.svg)](https://www.npmjs.com/package/tesseract.js)
 [![Downloads Month](https://img.shields.io/npm/dm/tesseract.js.svg)](https://www.npmjs.com/package/tesseract.js)
+[![Actions Panel](https://img.shields.io/badge/actionspanel-enabled-brightgreen)](https://www.actionspanel.app/app/blyzer/tesseract.js)
 
 <h3 align="center">
-  Version 2 is now available and under development in the master branch, read a story about v2: <a href="https://medium.com/@jeromewus/why-i-refactor-tesseract-js-v2-50f750a9cfe2">Why I refactor tesseract.js v2?</a><br>
-  Check the <a href="https://github.com/naptha/tesseract.js/tree/support/1.x">support/1.x</a> branch for version 1
+ La versión 2 ya está disponible y en desarrollo en la rama maestra, lea una historia sobre v2: <a href="https://medium.com/@jeromewus/why-i-refactor-tesseract-js-v2-50f750a9cfe2">Why I refactor tesseract.js v2?</a><br>
+  Comprobar el <a href="https://github.com/naptha/tesseract.js/tree/support/1.x">soporte / 1.x</a> rama para la versión 1
 </h3>
 
 <br>
 
-Tesseract.js is a javascript library that gets words in [almost any language](./docs/tesseract_lang_list.md) out of images. ([Demo](http://tesseract.projectnaptha.com/))
+Tesseract.js es una librería de javascript que introduce palabras en [almost any language](./docs/tesseract_lang_list.md) de las imágenes. ([Demo](http://tesseract.projectnaptha.com/))
 
-Image Recognition
+Reconocimiento de imágenes
 
 [![fancy demo gif](./docs/images/demo.gif)](http://tesseract.projectnaptha.com)
 
-Video Real-time Recognition
+Video Reconocimiento en tiempo real
 
 <p align="center">
   <a href="https://github.com/jeromewu/tesseract.js-video"><img alt="Tesseract.js Video" src="./docs/images/video-demo.gif"></a>
 </p>
 
 
-Tesseract.js wraps an [emscripten](https://github.com/kripken/emscripten) [port](https://github.com/naptha/tesseract.js-core) of the [Tesseract](https://github.com/tesseract-ocr/tesseract) [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) Engine.
-It works in the browser using [webpack](https://webpack.js.org/) or plain script tags with a [CDN](#CDN) and on the server with [Node.js](https://nodejs.org/en/).
-After you [install it](#installation), using it is as simple as:
+Tesseract.js envuelve un [emscripten](https://github.com/kripken/emscripten) [port](https://github.com/naptha/tesseract.js-core) del [Tesseract](https://github.com/tesseract-ocr/tesseract) [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) Motor.
+Funciona en el navegador usando [webpack](https://webpack.js.org/) o etiquetas de escritura simple con un [CDN](#CDN) y en el servidor con [Node.js](https://nodejs.org/en/).
+Después de ti [install it](#installation), Usarlo es tan simple como:
 
 ```javascript
 import Tesseract from 'tesseract.js';
@@ -47,7 +48,7 @@ Tesseract.recognize(
 })
 ```
 
-Or more imperative
+O más imperativo
 
 ```javascript
 import { createWorker } from 'tesseract.js';
@@ -66,19 +67,19 @@ const worker = createWorker({
 })();
 ```
 
-[Check out the docs](#docs) for a full explanation of the API.
+[Check out the docs](#docs) para una explicación completa de la API.
 
 
-## Major changes in v2
-- Upgrade to tesseract v4.1 (using emscripten 1.38.45)
-- Support multiple languages at the same time, eg: eng+chi\_tra for English and Traditional Chinese
-- Supported image formats: png, jpg, bmp, pbm
-- Support WebAssembly (fallback to ASM.js when browser doesn't support)
-- Support Typescript
+## Cambios importantes en la v2
+- Actualizar a tesseract v4.1 (usando emscripten 1.38.45)
+- Soporta varios idiomas al mismo tiempo, por ejemplo: eng+chi\_tra para el inglés y el chino tradicional
+- Formatos de imagen soportados: png, jpg, bmp, pbm
+- Soportar WebAssembly (volver a ASM.js cuando el navegador no lo soporte)
+- Tipografía de apoyo
 
 
-## Installation
-Tesseract.js works with a `<script>` tag via local copy or CDN, with webpack via `npm` and on Node.js with `npm/yarn`.
+## Instalación
+Tesseract.js funciona con una etiqueta `<script>` a través de una copia local o CDN, con un webpack a través de `npm` y en Node.js con `npm/yarn`.
 
 
 ### CDN
@@ -89,12 +90,12 @@ Tesseract.js works with a `<script>` tag via local copy or CDN, with webpack via
 <!-- v1 -->
 <script src='https://unpkg.com/tesseract.js@1.0.19/src/index.js'></script>
 ```
-After including the script the `Tesseract` variable will be globally available.
+Después de incluir el guión la variable `Tesseract` estará disponible globalmente.
 
 
 ### Node.js
 
-**Tesseract.js currently requires Node.js v6.8.0 or higher**
+**Tesseract.js actualmente requiere Node.js v6.8.0 o superior**
 
 ```shell
 # For v2
@@ -107,7 +108,7 @@ yarn add tesseract.js@1
 ```
 
 
-## Documentation
+## Documentación
 
 * [Examples](./docs/examples.md)
 * [Image Format](./docs/image-format.md)
@@ -115,68 +116,68 @@ yarn add tesseract.js@1
 * [Local Installation](./docs/local-installation.md)
 * [FAQ](./docs/faq.md)
 
-## Use tesseract.js the way you like!
+## Usa tesseract.js de la manera que te gusta!
 
-- Offline Version: https://github.com/jeromewu/tesseract.js-offline
-- Electron Version: https://github.com/jeromewu/tesseract.js-electron
-- Custom Traineddata: https://github.com/jeromewu/tesseract.js-custom-traineddata
-- Chrome Extension: https://github.com/jeromewu/tesseract.js-chrome-extension
-- With Vue: https://github.com/jeromewu/tesseract.js-vue-app
-- With Angular: https://github.com/jeromewu/tesseract.js-angular-app
-- With React: https://github.com/jeromewu/tesseract.js-react-app
+- Versión Fuera de línea: https://github.com/jeromewu/tesseract.js-offline
+- Versión Electron: https://github.com/jeromewu/tesseract.js-electron
+- Data Entrenada Personalizada: https://github.com/jeromewu/tesseract.js-custom-traineddata
+- Chrome Extensión: https://github.com/jeromewu/tesseract.js-chrome-extension
+- Con Vue: https://github.com/jeromewu/tesseract.js-vue-app
+- Con Angular: https://github.com/jeromewu/tesseract.js-angular-app
+- Con React: https://github.com/jeromewu/tesseract.js-react-app
 - Typescript: https://github.com/jeromewu/tesseract.js-typescript
 - Video Real-time Recognition: https://github.com/jeromewu/tesseract.js-video
 
-## Contributing
+## Contribuyendo
 
-### Development
-To run a development copy of Tesseract.js do the following:
+### Desarrollo
+Para ejecutar una copia de desarrollo de Tesseract.js haga lo siguiente:
 ```shell
-# First we clone the repository
+# Primero clonamos el depósito
 git clone https://github.com/naptha/tesseract.js.git
 cd tesseract.js
 
-# Then we install the dependencies
+# Luego instalamos las dependencias
 npm install
 
-# And finally we start the development server
+# Y finalmente iniciamos el servidor de desarrollo
 npm start
 ```
 
-The development server will be available at http://localhost:3000/examples/browser/demo.html in your favorite browser.
-It will automatically rebuild `tesseract.dev.js` and `worker.dev.js` when you change files in the **src** folder.
+El servidor de desarrollo estará disponible en http://localhost:3000/examples/browser/demo.html en su navegador favorito.
+Reconstruirá automáticamente `tesseract.dev.js` y `worker.dev.js` cuando cambie los archivos en la carpeta **src**..
 
-### Online Setup with a single Click
+### Configuración en línea con un solo clic
 
-You can use Gitpod(A free online VS Code like IDE) for contributing. With a single click it will launch a ready to code workspace with the build & start scripts already in process and within a few seconeds it will spin up the dev server so that you can start contributing straight away without wasting any time. 
+Puedes usar Gitpod (un código VS online gratuito como el IDE) para contribuir. Con un solo clic se lanzará un espacio de trabajo listo para codificar con los scripts de construcción y arranque ya en proceso y en unos pocos segundos hará girar el servidor de desarrollo para que puedas empezar a contribuir de inmediato sin perder tiempo. 
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/naptha/tesseract.js/blob/master/examples/browser/demo.html)
 
-### Building Static Files
-To build the compiled static files just execute the following:
+### Construir archivos estáticos
+Para construir los archivos estáticos compilados, simplemente ejecute lo siguiente:
 ```shell
 npm run build
 ```
-This will output the files into the `dist` directory.
+Esto hará que los archivos salgan en el directorio `dist'.
 
-## Contributors
+## Contribuyentes
 
 ### Code Contributors
 
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+Este proyecto existe gracias a todas las personas que contribuyen. [[Contribuir](CONTRIBUIR.md)].
 <a href="https://github.com/naptha/tesseract.js/graphs/contributors"><img src="https://opencollective.com/tesseractjs/contributors.svg?width=890&button=false" /></a>
 
 ### Financial Contributors
 
-Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/tesseractjs/contribute)]
+Conviértase en un contribuyente financiero y ayúdenos a mantener nuestra comunidad. [[Contribuya](https://opencollective.com/tesseractjs/contribute)]
 
-#### Individuals
+#### Individuos
 
 <a href="https://opencollective.com/tesseractjs"><img src="https://opencollective.com/tesseractjs/individuals.svg?width=890"></a>
 
-#### Organizations
+#### Organizaciones
 
-Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/tesseractjs/contribute)]
+Apoye este proyecto con su organización. Su logo aparecerá aquí con un enlace a su sitio web. [[Contribuir](https://opencollective.com/tesseractjs/contribute)]
 
 <a href="https://opencollective.com/tesseractjs/organization/0/website"><img src="https://opencollective.com/tesseractjs/organization/0/avatar.svg"></a>
 <a href="https://opencollective.com/tesseractjs/organization/1/website"><img src="https://opencollective.com/tesseractjs/organization/1/avatar.svg"></a>

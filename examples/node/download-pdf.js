@@ -6,7 +6,7 @@ const { createWorker } = require('../../');
 const [,, imagePath] = process.argv;
 const image = path.resolve(__dirname, (imagePath || '../../tests/assets/images/cosmic.png'));
 
-console.log(`Recognizing ${image}`);
+console.log(`Reconociendo ${image}`);
 
 (async () => {
   const worker = createWorker();
@@ -15,8 +15,8 @@ console.log(`Recognizing ${image}`);
   await worker.initialize('eng');
   const { data: { text } } = await worker.recognize(image);
   console.log(text);
-  const { data } = await worker.getPDF('Tesseract OCR Result');
+  const { data } = await worker.getPDF('Tesseract OCR Resultado');
   fs.writeFileSync('tesseract-ocr-result.pdf', Buffer.from(data));
-  console.log('Generate PDF: tesseract-ocr-result.pdf');
+  console.log('Generar PDF: tesseract-ocr-result.pdf');
   await worker.terminate();
 })();

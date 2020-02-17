@@ -5,9 +5,9 @@ let TesseractCore = null;
  */
 module.exports = (_, res) => {
   if (TesseractCore === null) {
-    res.progress({ status: 'loading tesseract core', progress: 0 });
+    res.progress({ status: 'cargando tesseract núcleo', progress: 0 });
     TesseractCore = require('tesseract.js-core');
-    res.progress({ status: 'loaded tesseract core', progress: 1 });
+    res.progress({ status: 'cargando tesseract núcleo', progress: 1 });
   }
   return TesseractCore;
 };

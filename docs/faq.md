@@ -1,21 +1,21 @@
-FAQ
+PREGUNTAS FRECUENTES
 ===
 
-## How does tesseract.js download and keep \*.traineddata?
+## ¿Cómo es que tesseract.js descargar y mantener \*.traineddata?
 
-The language model is downloaded by `worker.loadLanguage()` and you need to pass the langs to `worker.initialize()`.
+El modelo de lenguaje es descargado por `worker.loadLanguage()` y tienes que pasar los lenguajes a `worker.initialize()`.
 
-During the downloading of language model, Tesseract.js will first check if \*.traineddata already exists. (browser: [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), Node.js: fs, in the folder you execute the command) If the \*.traineddata doesn't exist, it will fetch \*.traineddata.gz from [tessdata](https://github.com/naptha/tessdata), ungzip and store in IndexedDB or fs, you can delete it manually and it will download again for you.
+Durante la descarga del modelo de lenguaje, Tesseract.js primero comprobará si \*.traineddata ya existe. (browser: [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), Node.js: fs, in the folder you execute the command) If the \*.traineddata doesn't exist, it will fetch \*.traineddata.gz from [tessdata](https://github.com/naptha/tessdata), Descomprímelo y guárdalo en IndexedDB o fs, puedes borrarlo manualmente y se descargará de nuevo para ti.
 
-## How can I train my own \*.traineddata?
+## ¿Cómo puedo entrenar a mi propio \*.traineddata?
 
-For tesseract.js v2, check [TrainingTesseract 4.00](https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00)
+Para tesseract.js v2, compruebe [TrainingTesseract 4.00](https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00)
 
-For tesseract.js v1, check [Training Tesseract 3.03–3.05](https://github.com/tesseract-ocr/tesseract/wiki/Training-Tesseract-3.03%E2%80%933.05)
+Para tesseract.js v1, compruebe [Training Tesseract 3.03–3.05](https://github.com/tesseract-ocr/tesseract/wiki/Training-Tesseract-3.03%E2%80%933.05)
 
-## How can I get HOCR, TSV, Box, UNLV, OSD?
+## ¿Cómo puedo obtener HOCR, TSV, Box, UNLV, OSD? ##
 
-Starting from 2.0.0-beta.1, you can get all these information in the final result.
+A partir de 2.0.0-beta.1, puedes obtener toda esta información en el resultado final.
 
 ```javascript
 import { createWorker } from 'tesseract.js';

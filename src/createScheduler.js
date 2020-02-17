@@ -42,23 +42,23 @@ module.exports = () => {
           dequeue();
         }
       });
-      log(`[${id}]: Add ${job.id} to JobQueue`);
-      log(`[${id}]: JobQueue length=${jobQueue.length}`);
+      log(`[${id}]: Añade ${job.id} a JobQueue`);
+      log(`[${id}]: JobQueue longitud=${jobQueue.length}`);
       dequeue();
     })
   );
 
   const addWorker = (w) => {
     workers[w.id] = w;
-    log(`[${id}]: Add ${w.id}`);
-    log(`[${id}]: Number of workers=${getNumWorkers()}`);
+    log(`[${id}]: Añade ${w.id}`);
+    log(`[${id}]: Número de trabajadores=${getNumWorkers()}`);
     dequeue();
     return w.id;
   };
 
   const addJob = async (action, ...payload) => {
     if (getNumWorkers() === 0) {
-      throw Error(`[${id}]: You need to have at least one worker before adding jobs`);
+      throw Error(`[${id}]: Necesitas tener por lo menos un trabajador antes de añadir puestos de trabajo.`);
     }
     return queue(action, payload);
   };

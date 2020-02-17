@@ -41,7 +41,7 @@ module.exports = (_options = {}) => {
 
   const startJob = ({ id: jobId, action, payload }) => (
     new Promise((resolve, reject) => {
-      log(`[${id}]: Start ${jobId}, action=${action}`);
+      log(`[${id}]: Comienza ${jobId}, acción=${action}`);
       setResolve(action, resolve);
       setReject(action, reject);
       send(worker, {
@@ -91,7 +91,7 @@ module.exports = (_options = {}) => {
     }))
   );
 
-  const getPDF = (title = 'Tesseract OCR Result', textonly = false, jobId) => (
+  const getPDF = (title = 'Tesseract OCR Resultado', textonly = false, jobId) => (
     startJob(createJob({
       id: jobId,
       action: 'getPDF',

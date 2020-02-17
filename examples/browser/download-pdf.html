@@ -27,7 +27,7 @@
       };
       const downloadPDF = async () => {
         const filename = 'tesseract-ocr-result.pdf';
-        const { data } = await worker.getPDF('Tesseract OCR Result');
+        const { data } = await worker.getPDF('Tesseract OCR Resultado');
         const blob = new Blob([new Uint8Array(data)], { type: 'application/pdf' });
         if (navigator.msSaveBlob) {
           // IE 10+

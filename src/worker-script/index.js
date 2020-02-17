@@ -33,20 +33,20 @@ const load = ({ workerId, jobId, payload: { options: { corePath, logging } } }, 
   if (!TessModule) {
     const Core = adapter.getCore(corePath, res);
 
-    res.progress({ workerId, status: 'initializing tesseract', progress: 0 });
+    res.progress({ workerId, status: 'Iniciando tesseract', progress: 0 });
 
     Core({
       TesseractProgress(percent) {
         latestJob.progress({
           workerId,
           jobId,
-          status: 'recognizing text',
+          status: 'reconociendo el texto',
           progress: Math.max(0, (percent - 30) / 70),
         });
       },
     }).then((tessModule) => {
       TessModule = tessModule;
-      res.progress({ workerId, status: 'initialized tesseract', progress: 1 });
+      res.progress({ workerId, status: 'Inicializado tesseract', progress: 1 });
       res.resolve({ loaded: true });
     });
   } else {
@@ -78,13 +78,13 @@ const loadLanguage = async ({
     try {
       const _data = await readCache(`${cachePath || '.'}/${lang}.traineddata`);
       if (typeof _data !== 'undefined') {
-        log(`[${workerId}]: Load ${lang}.traineddata from cache`);
+        log(`[${workerId}]: Cargar ${lang}.traineddata de caché`);
         data = _data;
       } else {
-        throw Error('Not found in cache');
+        throw Error('No se encuentra en el caché');
       }
     } catch (e) {
-      log(`[${workerId}]: Load ${lang}.traineddata from ${langPath}`);
+      log(`[${workerId}]: Cargar ${lang}.traineddata de ${langPath}`);
       if (typeof _lang === 'string') {
         let path = null;
 
@@ -128,10 +128,10 @@ const loadLanguage = async ({
     return Promise.resolve(data);
   };
 
-  res.progress({ workerId, status: 'loading language traineddata', progress: 0 });
+  res.progress({ workerId, status: 'lenguaje de carga datos entrenados', progress: 0 });
   try {
     await Promise.all((typeof langs === 'string' ? langs.split('+') : langs).map(loadAndGunzipFile));
-    res.progress({ workerId, status: 'loaded language traineddata', progress: 1 });
+    res.progress({ workerId, status: 'los datos de entrenamiento de lenguaje cargados', progress: 1 });
     res.resolve(langs);
   } catch (err) {
     if (isWebWorker && err instanceof DOMException) {
@@ -169,7 +169,7 @@ const initialize = ({
 
   try {
     res.progress({
-      workerId, status: 'initializing api', progress: 0,
+      workerId, status: 'Iniciando api', progress: 0,
     });
     if (api !== null) {
       api.End();
@@ -179,7 +179,7 @@ const initialize = ({
     params = defaultParams;
     setParameters({ payload: { params } });
     res.progress({
-      workerId, status: 'initialized api', progress: 1,
+      workerId, status: 'Inicializado api', progress: 1,
     });
     res.resolve();
   } catch (err) {
@@ -219,7 +219,7 @@ const detect = ({ payload: { image } }, res) => {
     if (!api.DetectOS(results)) {
       api.End();
       TessModule._free(ptr);
-      res.reject('Failed to detect OS');
+      res.reject('No se detectó OS');
     } else {
       const best = results.best_result;
       const oid = best.orientation_id;

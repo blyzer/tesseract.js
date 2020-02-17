@@ -1,8 +1,8 @@
-# Tesseract.js Examples
+# Tesseract.js Ejemplos
 
-You can also check [examples](../examples) folder.
+También puede consultar [ejemplos](../examples) folder.
 
-### basic
+### básico
 
 ```javascript
 const { createWorker } = require('tesseract.js');
@@ -19,7 +19,7 @@ const worker = createWorker();
 })();
 ```
 
-### with detailed progress 
+### con un progreso detallado 
 
 ```javascript
 const { createWorker } = require('tesseract.js');
@@ -38,7 +38,7 @@ const worker = createWorker({
 })();
 ```
 
-### with multiple languages, separate by '+'
+### con múltiples idiomas, separados por '+'.
 
 ```javascript
 const { createWorker } = require('tesseract.js');
@@ -54,7 +54,7 @@ const worker = createWorker();
   await worker.terminate();
 })();
 ```
-### with whitelist char (^2.0.0-beta.1)
+### con el carácter de lista blanca (^2.0.0-beta.1)
 
 ```javascript
 const { createWorker } = require('tesseract.js');
@@ -74,7 +74,7 @@ const worker = createWorker();
 })();
 ```
 
-### with different pageseg mode (^2.0.0-beta.1)
+### con un modo diferente de pageseg (^2.0.0-beta.1)
 
 Check here for more details of pageseg mode: https://github.com/tesseract-ocr/tesseract/blob/4.0.0/src/ccstruct/publictypes.h#L163
 
@@ -96,16 +96,16 @@ const worker = createWorker();
 })();
 ```
 
-### with pdf output (^2.0.0-beta.1)
+### con salida en pdf (^2.0.0-beta.1)
 
-Please check **examples** folder for details.
+Por favor, compruebe la carpeta de **ejemplos** para más detalles.
 
 Browser: [download-pdf.html](../examples/browser/download-pdf.html)
 Node: [download-pdf.js](../examples/node/download-pdf.js)
 
-### with only part of the image (^2.0.1)
+### con sólo una parte de la imagen (^2.0.1)
 
-**One rectangle**
+**Un rectángulo**
 
 ```javascript
 const { createWorker } = require('tesseract.js');
@@ -123,7 +123,7 @@ const rectangle = { left: 0, top: 0, width: 500, height: 250 };
 })();
 ```
 
-**Multiple Rectangles**
+**Múltiples rectángulos**
 
 ```javascript
 const { createWorker } = require('tesseract.js');
@@ -158,7 +158,7 @@ const rectangles = [
 })();
 ```
 
-**Multiple Rectangles (with scheduler to do recognition in parallel)**
+**Múltiples Rectángulos (con programador para hacer el reconocimiento en paralelo)**
 
 ```javascript
 const { createWorker, createScheduler } = require('tesseract.js');
@@ -198,7 +198,7 @@ const rectangles = [
 })();
 ```
 
-### with multiple workers to speed up (^2.0.0-beta.1)
+### con múltiples trabajadores para acelerar (^2.0.0-beta.1)
 
 ```javascript
 const { createWorker, createScheduler } = require('tesseract.js');
